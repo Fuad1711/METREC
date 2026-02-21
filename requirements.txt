@@ -1,0 +1,30 @@
+# requirements.txt
+#
+# The Python packages this project depends on.
+# Install them all at once with:   pip install -r requirements.txt
+#
+# Or (preferred) install the package in editable mode with dev tools:
+#                                  pip install -e ".[dev]"
+#
+# Packages are grouped by who uses them.
+# Add new packages here when you need them, with a comment explaining why.
+
+# ── Core scientific computing (everyone will use these eventually) ────────────
+numpy>=1.26        # arrays and math — the foundation of everything
+scipy>=1.12        # ODE solver, statistics (Person A will use this heavily)
+pandas>=2.2        # tables and DataFrames (Person B's wind data will be a DataFrame)
+
+# ── Visualisation ─────────────────────────────────────────────────────────────
+matplotlib>=3.8    # basic plotting (Person A's notebook, Person D's maps)
+
+# ── HTTP / data fetching ──────────────────────────────────────────────────────
+requests>=2.31     # making web requests to NOAA APIs (Person B)
+pyyaml>=6.0        # reading .yaml config files (the examples/ folder)
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+pytest>=8.0        # runs our tests
+pytest-cov>=5.0    # measures how much of the code the tests cover
+
+# ── Week 2+ (commented out until needed) ─────────────────────────────────────
+# cartopy>=0.22    # geographic map projections (Person D, Week 2)
+# geopandas>=0.14  # geographic data manipulation (Person D, Week 2)

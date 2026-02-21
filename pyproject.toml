@@ -1,0 +1,52 @@
+# pyproject.toml
+#
+# This file makes `metrec` installable as a Python package.
+# When you run `pip install -e ".[dev]"`, pip reads this file to know:
+#   - What the package is called
+#   - What other packages it depends on
+#   - What extra packages to install for development (like pytest)
+#
+# You shouldn't need to edit this in Week 1.
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "metrec"
+version = "0.1.0-dev"
+description = "Probabilistic meteorite dark-flight trajectory and landing prediction."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Meteor Dark Flight Team" },
+]
+
+# These are installed when you run: pip install -e "."
+# Keep this list minimal for now — we'll add more as we need them.
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.12",
+    "pandas>=2.2",
+    "matplotlib>=3.8",
+    "requests>=2.31",
+    "pyyaml>=6.0",
+]
+
+# These are installed when you run: pip install -e ".[dev]"
+# The [dev] group adds pytest so we can run tests.
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+]
+
+# Tells setuptools where to find the metrec package
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# Pytest configuration — tells pytest where tests live and how to display output
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
